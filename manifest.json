@@ -1,0 +1,8 @@
+{
+  "manifest_version": 1,
+  "name": "Khow your Frontend",
+  "version": "0.0.1",
+
+  "default_locale": "en",
+  "description": "A plain text description"
+}
