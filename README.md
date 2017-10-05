@@ -8,7 +8,7 @@ React app contains:
 - data-reactroot
 - data-reactid
 
-#Detecting Angular app
+# Detecting Angular app
 Angular app contains:
 - ng-app
 - ng-model
