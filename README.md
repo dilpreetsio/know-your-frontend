@@ -1,17 +1,6 @@
-# Detecting Ember app
-Ember app contains:
-- EmberENV
-- ember-application
+# Know your Frontend
+This chrome extension will allow you to check the frontend framework used to develop the web app.
+Currently it supports [Angular](https://angular.io/), [Ember](https://emberjs.com/) & [React](https://reactjs.org/) apps.
 
-# Detecting React app
-React app contains:
-- data-reactroot
-- data-reactid
-
-# Detecting Angular app
-Angular app contains:
-- ng-app
-- ng-model
-- ng-controller
-- ng-version
-- ng-binding
+# Found a bug?
+Please report it [here](https://github.com/geekyd/know-your-frontend/issues)
