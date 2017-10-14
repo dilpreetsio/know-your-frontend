@@ -4,7 +4,7 @@ var emberSelector = '.ember-application';
 
 function checkFE() {
   var frontend = '';
-  if (document.querySelector(reactSelector)) {
+  if (document.querySelector(reactSelector) || (window.require && window.require('React'))) {
     frontend = 'react';
   } else if(document.querySelector(angularSelector)) {
     frontend = 'angular';
