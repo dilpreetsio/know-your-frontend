@@ -3,6 +3,9 @@ var angularSelector = '[ng-app], [ng-model],[ng-controller],[ng-version],[ng-bin
 var emberSelector = '.ember-application';
 var vueSelector = '#detect-vue';
 var knockoutSelector = '#detect-knockout';
+var backboneSelector = '#detect-backbone';
+var polymerSelector = '#detect-polymer';
+var aureliaSelector = '[aurelia-app]';
 
 function injectScript() {
   var script = document.createElement('script');
@@ -10,10 +13,16 @@ function injectScript() {
     function () {
       var selector;
       if (window.Vue && window.Vue.version) {
-          selector = "detect-vue";
+        selector = "detect-vue";
       }
       if (window.ko && window.ko.version) {
         selector = "detect-knockout";
+      }
+      if (window.Backbone && window.Backbone.VERSION) {
+        selector = "detect-backbone";
+      }
+      if (window.Polymer && window.Polymer.version) {
+        selector = "detect-polymer";
       }
       if (selector) {
         var el = document.createElement("span");
@@ -27,7 +36,7 @@ function injectScript() {
 }
 
 function cleanUp() {
-  [vueSelector, knockoutSelector].map(function (selector) {
+  [vueSelector, knockoutSelector, backboneSelector, polymerSelector].map(function (selector) {
     var el = document.getElementById(selector.replace("#", ""));
     if (el) {
       el.remove();
@@ -48,6 +57,12 @@ function checkFE() {
     frontend = 'vue';
   } else if(document.querySelector(knockoutSelector)) {
     frontend = 'knockout';
+  } else if(document.querySelector(backboneSelector)) {
+    frontend = 'backbone';
+  } else if(document.querySelector(polymerSelector)) {
+    frontend = 'polymer';
+  } else if(document.querySelector(aureliaSelector)) {
+    frontend = 'aurelia';
   } else {
     frontend = 'none';
   }
