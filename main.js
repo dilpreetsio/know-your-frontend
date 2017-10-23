@@ -1,3 +1,4 @@
+var frontend = '';
 var reactSelector = '[data-reactroot], [data-reactid]';
 var angularSelector = '[ng-app], [ng-model],[ng-controller],[ng-version],[ng-binding]';
 var emberSelector = '.ember-application';
@@ -45,7 +46,6 @@ function cleanUp() {
 }
 
 function checkFE() {
-  var frontend = '';
   injectScript();
   if (document.querySelector(reactSelector) || (window.require && window.require('React'))) {
     frontend = 'react';
@@ -70,8 +70,6 @@ function checkFE() {
   cleanUp();
 }
 
-chrome.runtime.onMessage.addListener(function() {
-  checkFE();
+chrome.runtime.onMessage.addListener(function(status) {
+  setTimeout(checkFE, 1000);
 });
-
-setTimeout(checkFE, 1000);

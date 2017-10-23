@@ -24,9 +24,13 @@ chrome.runtime.onMessage.addListener(
   });
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-  chrome.tabs.sendMessage(tabId, { status: true });
+  if (tab.selected && tab.url !== 'chrome://newtab/') {
+    chrome.tabs.sendMessage(tabId, { status: true });
+  } else if(tab.url === 'chrome://newtab/') {
+    chrome.browserAction.setIcon({path: basePath + 'icon32.png'});
+  }
 });
 
-chrome.tabs.onActivated.addListener(function(tab) {
+chrome.tabs.onActivated.addListener(function(tab, changeInfo, tabId) {
   chrome.tabs.sendMessage(tab.tabId, { status: true });
 });
