@@ -4,3 +4,6 @@ Currently it supports [Angular](https://angular.io/), [Ember](https://emberjs.co
 
 # Found a bug?
 Please report it [here](https://github.com/geekyd/know-your-frontend/issues)
+
+# Maintainer
+This project is maintained by [geekyd](https://github.com/geekyd)
