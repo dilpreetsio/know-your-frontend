@@ -8,6 +8,16 @@ chrome.runtime.onMessage.addListener(
       chrome.browserAction.setIcon({path: basePath + 'ember.png'});
     } else if (request.framework === 'angular') {
       chrome.browserAction.setIcon({path: basePath + 'angular.png'});
+    } else if (request.framework === 'vue') {
+      chrome.browserAction.setIcon({path: basePath + 'vue.png'});
+    } else if (request.framework === 'knockout') {
+      chrome.browserAction.setIcon({path: basePath + 'knockout.png'});
+    } else if (request.framework === 'backbone') {
+      chrome.browserAction.setIcon({path: basePath + 'backbone.png'});
+    } else if (request.framework === 'polymer') {
+      chrome.browserAction.setIcon({path: basePath + 'polymer.png'});
+    } else if (request.framework === 'aurelia') {
+      chrome.browserAction.setIcon({path: basePath + 'aurelia.png'});
     } else if (request.framework === 'none') {
       chrome.browserAction.setIcon({path: basePath + 'unknown.png'});
     }
@@ -23,4 +33,4 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 
 chrome.tabs.onActivated.addListener(function(tab, changeInfo, tabId) {
   chrome.tabs.sendMessage(tab.tabId, { status: true });
-})
+});
