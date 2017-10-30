@@ -4,7 +4,8 @@ var emberSelector = '.ember-application';
 var frontend = '';
 
 function checkFE() {
-  if (document.querySelector(reactSelector) || (window.require && window.require('React'))) {
+  console.log('checkFE');
+  if (document.querySelector(reactSelector)) {
     frontend = 'react';
   } else if(document.querySelector(angularSelector)) {
     frontend = 'angular';
@@ -16,6 +17,8 @@ function checkFE() {
   chrome.runtime.sendMessage({ framework: frontend });
 }
 
-chrome.runtime.onMessage.addListener(function(status) {
-  setTimeout(checkFE, 1000);
+chrome.runtime.onMessage.addListener(function(state) {
+  if (state.status) {
+    checkFE();    
+  }
 });

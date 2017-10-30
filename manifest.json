@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "know-your-frontend",
-  "version": "0.1",
+  "version": "1.0",
   "description": "Detect the frontend framework of web apps",
   "author": "Dilpreet Singh",
   "background": {
