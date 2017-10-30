@@ -1,26 +1,33 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
 
   "name": "know-your-frontend",
-  "version": "0.1",
+  "version": "1.0",
   "description": "Detect the frontend framework of web apps",
   "author": "Dilpreet Singh",
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+   "scripts": ["background.js"],
+   "persistent": false
+  },
+  "icons": {
+   "16": "/images/icon16.png",
+   "32": "/images/icon32.png",
+   "48": "/images/icon48.png",
+   "128": "/images/icon128.png"
   },
   "browser_action": {
-    "default_icon": "/images/frontend.png"
+   "default_icon": "/images/icon128.png",
+   "default_popup": "index.html"
   },
   "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["main.js"]
-    }
+   {
+     "matches": ["<all_urls>"],
+     "js": ["main.js"]
+   }
   ],
   "permissions": [
-    "activeTab",
-    "storage",
-    "tabs"
+   "activeTab",
+   "storage",
+   "tabs"
   ]
 }

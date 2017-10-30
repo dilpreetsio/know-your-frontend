@@ -8,30 +8,27 @@
         white-space: nowrap;
       }
 
-      h1 {
-        font-size: 15px;
+      a {
+        text-decoration: none;
+        color: #1893f1;
       }
 
-      #container {
-        align-items: center;
-        display: flex;
-        justify-content: space-between;
+      .text {
+        padding: 2px;
+      }
+
+      .report {
+        font-weight: 500;
       }
     </style>
-    <script src="popup.js"></script>
+    <script src="main.js"></script>
   </head>
-
   <body>
-    <h1>Background Color Changer</h1>
-    <div id="container">
-      <span>Choose a color</span>
-      <select id="dropdown">
-        <option selected disabled hidden value=''></option>
-        <option value="white">White</option>
-        <option value="pink">Pink</option>
-        <option value="green">Green</option>
-        <option value="yellow">Yellow</option>
-      </select>
+    <div class="text report">
+      Are we missing somthing? Please report it <a href="https://github.com/geekyd/know-your-frontend">here</a>
+    </div>
+    <div class="text">
+      Created by <a href="https://github.com/geekyd">Dilpreet Singh(geekyd)</a>
     </div>
   </body>
 </html>

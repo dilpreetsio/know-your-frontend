@@ -1,6 +1,7 @@
 var reactSelector = '[data-reactroot], [data-reactid]';
 var angularSelector = '[ng-app], [ng-model],[ng-controller],[ng-version],[ng-binding]';
 var emberSelector = '.ember-application';
+var frontend = '';
 
 
 function checkFE() {
@@ -24,8 +25,8 @@ function checkFE() {
   chrome.runtime.sendMessage({ framework: frontend });
 }
 
-chrome.runtime.onMessage.addListener(function() {
-  checkFE();
+chrome.runtime.onMessage.addListener(function(state) {
+  if (state.status) {
+    checkFE();    
+  }
 });
-
-setTimeout(checkFE, 1000);
