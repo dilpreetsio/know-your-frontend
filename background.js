@@ -14,7 +14,7 @@ chrome.runtime.onMessage.addListener(
   });
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-  if (changeInfo.status) {
+  if (changeInfo.status === 'complete') {
     if (tab.selected && !tab.url.startsWith('chrome://')) {
       chrome.tabs.sendMessage(tabId, { status: true });
     } else if(tab.url.startsWith('chrome://')) {
@@ -24,10 +24,11 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 });
 
 chrome.tabs.onActivated.addListener(function(tab, changeInfo, tabId) {
-  if(!tab.url.startsWith('chrome://')) {
-    chrome.tabs.sendMessage(tab.tabId, { status: true });
-
-  } else {
-    chrome.browserAction.setIcon({path: basePath + 'icon32.png'});  
-  }
+  chrome.tabs.query({ active: true, currentWindow: true}, (tabs) => {
+    if (!tabs[0].url.startsWith('chrome://')) {
+      chrome.tabs.sendMessage(tab.tabId, { status: true });
+    } else {
+      chrome.browserAction.setIcon({path: basePath + 'icon32.png'});
+    }
+  });
 })

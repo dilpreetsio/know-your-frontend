@@ -4,7 +4,6 @@ var emberSelector = '.ember-application';
 var frontend = '';
 
 function checkFE() {
-  console.log('checkFE');
   if (document.querySelector(reactSelector)) {
     frontend = 'react';
   } else if(document.querySelector(angularSelector)) {
@@ -19,6 +18,6 @@ function checkFE() {
 
 chrome.runtime.onMessage.addListener(function(state) {
   if (state.status) {
-    checkFE();    
+    checkFE();
   }
 });

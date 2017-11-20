@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "know-your-frontend",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Detect the frontend framework of web apps",
   "author": "Dilpreet Singh",
   "background": {
@@ -27,7 +27,6 @@
   ],
   "permissions": [
    "activeTab",
-   "storage",
    "tabs"
   ]
 }
